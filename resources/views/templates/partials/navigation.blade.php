@@ -19,12 +19,18 @@
         <a class="nav-link" href="#">Кадры <span class="sr-only">(current)</span></a>
       </li>
     </ul>
+    <form method="GET" action="{{ route('search.results') }}" class="form-inline my-2 my-lg-0">
+      <input name="query" class="form-control mr-sm-2" type="search"
+             placeholder="Кого ищем?" aria-label="Search">
+      <button type="submit" class="btn btn-success my-2 my-sm-0">Найти</button>
+    </form>
     @endif
 
     <ul class="navbar-nav ml-auto">
     @if (Auth::check())
     <li class="nav-item">
-      <a href="#" class="nav-link">{{ Auth::user()->getNameOrUsername() }}</a>
+      <a href="{{ route('profile.index', ['username' => Auth::user()->username]) }}" 
+         class="nav-link">{{ Auth::user()->getNameOrUsername() }}</a>
     </li>
     <li class="nav-item">
       <a href="#" class="nav-link">Обновить профиль</a>
