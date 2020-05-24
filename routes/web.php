@@ -28,9 +28,9 @@ Route::get('/signout', 'AuthController@getSignout')->name('auth.signout');
 Route::get('/search', 'SearchController@getResults')->name('search.results');
 
 //Профили
-Route::get('/user/{username}', 'ProfileController@getProfile')->name('profile.index');
+Route::get('/personnel/{id}/edit', 'ProfileController@editProfile')->middleware('auth')->name('profile.edit');
 
-Route::get('/profile/edit', 'ProfileController@getEdit')->middleware('auth')->name('profile.edit');
-Route::post('/profile/edit', 'ProfileController@postEdit')->middleware('auth')->name('profile.edit');
+Route::post('/personnel/{id}/edit', 'ProfileController@editProfileSubmit')->middleware('auth')->name('profile.edit.submit');
+
 
 

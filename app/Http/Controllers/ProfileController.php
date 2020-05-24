@@ -3,28 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function getProfile($username)
+    public function editProfile($id)
     {
-        $user = User::where('username', $username)->first();
-        
-        if (!$user) {
-            abort(404);
-        }
-
-        return view('profile.index', compact('user'));
-    }
-
-    public function getEdit()
-    {
-        return view('profile.edit');
-    }
-
-    public function postEdit()
-    {
-        
+        $profile = new Users;
+        return view('profile.edit', ['data' => $profile->find($id)]);
     }
 }

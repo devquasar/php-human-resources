@@ -7,7 +7,6 @@
           @if (!$users->count())
               <p>Пользователей не найдено</p>
           @else
-          <div class="container">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
@@ -24,11 +23,13 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Name</th>						
-                      <th>Date Created</th>
-                      <th>Role</th>
-                      <th>Status</th>
-                      <th>Action</th>
+                      <th>ФИО</th>
+                      <th>Номер телефона</th>						
+                      <th>Дата рождения</th>
+                      <th>Дата трудоустройства</th>
+                      <th>Дата увольнения</th>
+                      <th>Адрес</th>
+                      <th>Действия</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -50,8 +51,7 @@
                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
                 </ul>
             </div>
-        </div>
-    </div> 
+        </div> 
     @endif
   </div>
 </div>

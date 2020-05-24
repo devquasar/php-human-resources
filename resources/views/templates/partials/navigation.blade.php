@@ -13,7 +13,7 @@
     @if (Auth::check())
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ route('home') }}">Главная <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Кадры <span class="sr-only">(current)</span></a>
@@ -29,7 +29,7 @@
     <ul class="navbar-nav ml-auto">
     @if (Auth::check())
     <li class="nav-item">
-      <a href="{{ route('profile.index', ['username' => Auth::user()->username]) }}" 
+      <a href="{{ route('profile.edit', ['id' => Auth::user()->id]) }}" 
          class="nav-link">{{ Auth::user()->getNameOrUsername() }}</a>
     </li>
     <li class="nav-item">
