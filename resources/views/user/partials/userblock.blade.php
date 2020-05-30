@@ -13,19 +13,19 @@
 
     <td> 
         <span>
-            {{ $user->getBirthDate() }}
+            {{ date('d.m.Y', strtotime($user->getBirthDate())) }}
         </span>
     </td>
 
     <td>
         <span>
-            {{ $user->getStartWork() }}
+            {{ date('d.m.Y', strtotime($user->getStartWork())) }}
         </span>
     </td>
 
     <td>
         <span>
-            {{ $user->getEndWork() }}
+            {{ date('d.m.Y', strtotime($user->getEndWork())) }}
         </span>
     </td>
 
@@ -36,7 +36,7 @@
     </td>
 
 	<td>
-        <a href="#" class="settings" title="Редактировать" 
+        <a href="{{ route('profile.edit', $user->id) }}" class="settings" title="Редактировать" 
            data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
         <a href="#" class="delete" title="Удалить" 
            data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>

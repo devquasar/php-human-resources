@@ -12,7 +12,7 @@
         </div>
     </div>
     
-    <form action="{{ route('profile.edit.submit', $data->id) }}" method="post">
+    <form action="{{ route('user.edit.submit', $data->id) }}" method="post">
       @csrf
       <div class="row">
         <div class="form-group col-4">
@@ -35,6 +35,11 @@
       </div>
 
       <div class="row">
+        <div class="form-group col-6">
+            <label for="email">Имя пользователя</label>
+            <input type="text" name="username" value="{{ $data->username }}"
+                   placeholder="Имя пользователя" id="username" class="form-control">
+        </div>
         <div class="form-group col-6">
           <label for="email">E-mail</label>
           <input type="text" name="email" value="{{ $data->email }}"

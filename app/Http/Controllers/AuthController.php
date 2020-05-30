@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\SignupRequest;
+use App\Http\Requests\SigninRequest;
+
 
 class AuthController extends Controller
 {
@@ -13,14 +16,8 @@ class AuthController extends Controller
         return view('auth.signup');
     }
 
-    public function postSignup(Request $request)
+    public function postSignup(SignupRequest $request)
     {
-        $this->validate($request, [
-          'email' => 'required|unique:users|email|max:255',
-          'username' => 'required|unique:users|alpha_dash|max:20',
-          'password' => 'required|min:6',
-        ]);
-
         User::create([
           'email' => $request->input('email'),
           'username' => $request->input('username'),
@@ -37,13 +34,8 @@ class AuthController extends Controller
         return view('auth.signin');
     }
 
-    public function postSignin(Request $request)
+    public function postSignin(SigninRequest $request)
     {
-        $this->validate($request, [
-        'email' => 'required|max:255',
-        'password' => 'required|min:6',
-      ]);
-
         if (!Auth::attempt($request->only(['email', 'password']), $request->has('remember'))) {
             return redirect()->back()->with('info', 'Неправильный логин или пароль');
         }
